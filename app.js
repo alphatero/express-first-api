@@ -11,7 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var wordsRouter = require("./routes/words");
 var authRouter = require("./routes/auth");
-var signupRouter = require("./routes/signup");
+// var signupRouter = require("./routes/signup");
 
 var csrfProtection = csurf({ cookie: true });
 
@@ -37,7 +37,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/signup", csrfProtection, signupRouter);
 app.use("/words", wordsRouter);
 app.use("/login", csrfProtection, authRouter);
 // catch 404 and forward to error handler

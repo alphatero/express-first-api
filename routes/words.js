@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-const firebaseAdmin = require("../db");
+// const firebaseAdmin = require("../db");
 
 // point url
-const wordsRef = firebaseAdmin.ref("note/words");
+// const wordsRef = firebaseAdmin.ref("note/words");
 
 router.post("/", (req, res) => {
   const { data } = req.body;
