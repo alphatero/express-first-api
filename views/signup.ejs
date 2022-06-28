@@ -1,8 +1,12 @@
 <h1><%= title %></h1>
-<form action="/signup" method="post">
-  <input type="email" name="email" id="email" />
+<form action="/users/signup" method="post">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+  <label for="username">名稱</label>
+  <input type="text" name="username" id="username" />
   <label for="email">帳號</label>
-  <input type="password" name="password" id="password" />
+  <input type="email" name="email" id="email" />
   <label for="password">密碼</label>
+  <input type="password" name="password" id="password" />
   <button type="submit">註冊</button>
 </form>

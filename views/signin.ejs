@@ -1,5 +1,7 @@
 <h1><%= title %></h1>
-<form action="/login" method="post">
+<form action="/users/signin" method="post">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
   <input type="email" name="email" id="email" />
   <label for="email">帳號</label>
   <input type="password" name="password" id="password" />

@@ -25,17 +25,4 @@ router.post("/singin", function (req, res, next) {
     });
 });
 
-router.get("/signup", function (req, res, next) {
-  console.log(firebasebase.ref());
-  res.render("signup", {
-    csrfToken: req.csrfToken(),
-    title: "註冊帳號",
-  });
-});
-
-router.post("/signup", function (req, res, next) {
-  console.log(req.body);
-  res.render("signup", { title: "註冊帳號" });
-});
-
 module.exports = router;
