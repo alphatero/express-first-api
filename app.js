@@ -6,11 +6,12 @@ const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const csurf = require("csurf");
 const logger = require("morgan");
+const cors = require("cors");
 
 const indexRouter = require("./routes/index");
-// const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/users");
 const wordsRouter = require("./routes/words");
-// const authRouter = require("./routes/auth");
+const authRouter = require("./routes/auth");
 
 const csrfProtection = csurf({ cookie: true });
 
