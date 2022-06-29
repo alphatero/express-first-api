@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", csrfProtection, usersRouter);
-app.use("/words", wordsRouter);
+app.use("api/words", wordsRouter);
 app.use("/login", csrfProtection, authRouter);
 // app.use("/signup", csrfProtection, signupRouter);
 // catch 404 and forward to error handler
