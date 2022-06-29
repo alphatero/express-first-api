@@ -8,9 +8,9 @@ const csurf = require("csurf");
 const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+// const usersRouter = require("./routes/users");
 const wordsRouter = require("./routes/words");
-const authRouter = require("./routes/auth");
+// const authRouter = require("./routes/auth");
 
 const csrfProtection = csurf({ cookie: true });
 
