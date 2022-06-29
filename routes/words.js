@@ -4,12 +4,10 @@ const firebasedb = require("../connection/firebase-admin");
 
 // point url
 
+const wordsRef = firebasedb.ref("note/words");
 router.post("/create", (req, res, next) => {
-  console.log(req.body);
-
   const reqData = req.body.data || {};
 
-  const wordsRef = firebasedb.ref("note/words");
   const wordRef = wordsRef.push();
 
   reqData.id = wordRef.key;
@@ -17,25 +15,26 @@ router.post("/create", (req, res, next) => {
   wordRef.set(reqData).then(() => {
     res.send({
       status: true,
+      reqData,
     });
   });
 });
 
-// router.get("/all", function (req, res, next) {
-//   const words = [];
-//   wordsRef
-//     .once("value")
-//     .then((snapshot) => {
-//       snapshot.forEach((item) => {
-//         words.push(item.val());
-//       });
-//     })
-//     .then(() => {
-//       res.send({
-//         status: true,
-//         words,
-//       });
-//     });
-// });
+router.get("/", function (req, res, next) {
+  const words = [];
+  wordsRef
+    .once("value")
+    .then((snapshot) => {
+      snapshot.forEach((item) => {
+        words.push(item.val());
+      });
+    })
+    .then(() => {
+      res.send({
+        status: true,
+        words,
+      });
+    });
+});
 
 module.exports = router;
